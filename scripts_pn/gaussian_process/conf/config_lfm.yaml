@@ -1,0 +1,42 @@
+# Gaussian Process LFM Training Configuration
+
+arch:
+  latent_dim: 4
+  p_deeponet: 64
+  h_encoder: 128
+  h_trunk: 128
+  h_branch: 128
+  nhl_encoder: 3
+  nhl_trunk: 2
+  nhl_branch: 2
+
+flow_matching:
+  epochs: 1000
+  lr: 0.001
+  batch_size: 256
+  hidden_size: 128
+  num_hidden_layers: 3
+  sigma_min: 0.01
+
+training:
+  grad_clip: 0.5
+  seed: 0
+  lr: 0.001
+  batch_size: 256
+
+loss:
+  res_weight: 0.1
+  kld_weight: 1.0e-6
+
+data:
+  N_data: 1000
+  num_sensors: 5
+  num_colloc: 50
+  gp_var: 0.5
+  gp_cov_len: 0.1
+  use_cov: false
+
+output:
+  result_dir: results_pn/gaussian_process
+  vae_checkpoint: null
+  version: 0

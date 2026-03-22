@@ -1,0 +1,41 @@
+# Wind LFM Training Configuration
+
+arch:
+  latent_dim: 64
+  p_deeponet: 128
+  h_trunk: 128
+  h_branch: 128
+  nhl_trunk: 2
+  nhl_branch: 2
+  encoder_type: unet1d
+
+flow_matching:
+  epochs: 1000
+  lr: 0.001
+  batch_size: 256
+  hidden_size: 128
+  num_hidden_layers: 3
+  sigma_min: 0.01
+
+training:
+  grad_clip: 0.5
+  seed: 0
+  lr: 0.001
+  batch_size: 32
+  num_workers: 4
+
+loss:
+  res_weight: 0.001
+  kld_weight: 1.0e-6
+  T: 256
+  num_colloc: 10
+
+data:
+  data_file: "../../data/wind/wind_data.hdf5"
+  sparse_sensors: false
+  num_sensors: 100
+
+output:
+  result_dir: results_pn/wind
+  vae_checkpoint: null
+  version: 0

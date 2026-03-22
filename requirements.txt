@@ -90,3 +90,7 @@ wcwidth==0.2.13
 wheel==0.45.1
 widgetsnbextension==4.0.13
 yarl==1.18.3
+# PhysicsNemo dependencies (for clfm_pn)
+physicsnemo
+hydra-core>=1.3
+omegaconf

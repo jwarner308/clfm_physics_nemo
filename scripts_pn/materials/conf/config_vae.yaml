@@ -1,0 +1,33 @@
+# Materials VAE Training Configuration
+
+arch:
+  latent_dim: 64
+  p_deeponet: 128
+  h_encoder: 128
+  h_trunk: 128
+  h_branch: 128
+  nhl_encoder: 3
+  nhl_trunk: 2
+  nhl_branch: 2
+
+training:
+  epochs: 10000
+  lr: 0.001
+  batch_size: 256
+  grad_clip: 0.5
+  seed: 0
+  num_workers: 16
+
+loss:
+  res_weight: 1.0e-6
+  kld_weight: 1.0e-6
+  lbc_weight: 1.0
+  rbc_weight: 1.0
+
+data:
+  N_data: 1000
+  num_test_data: 500
+  num_colloc: 100
+
+output:
+  result_dir: results_pn/materials
