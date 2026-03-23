@@ -5,7 +5,7 @@ import hydra
 from omegaconf import DictConfig
 
 from physicsnemo.distributed import DistributedManager
-from physicsnemo.launch.utils import load_checkpoint
+from physicsnemo.utils.checkpoint import load_checkpoint
 
 from clfm_pn.problems.materials import MaterialsTrain
 from clfm_pn.nn.vae import FunctionalVAE

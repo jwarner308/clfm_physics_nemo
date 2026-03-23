@@ -4,8 +4,8 @@ import torch.nn.functional as F
 from torchdyn.core import NeuralODE
 
 from physicsnemo.distributed import DistributedManager
-from physicsnemo.launch.logging import LaunchLogger
-from physicsnemo.launch.utils import load_checkpoint, save_checkpoint
+from physicsnemo.utils.logging import LaunchLogger
+from physicsnemo.utils.checkpoint import load_checkpoint, save_checkpoint
 
 from clfm_pn.nn.fully_connected_nets import PNFlowModel
 from clfm_pn.utils import reparameterize

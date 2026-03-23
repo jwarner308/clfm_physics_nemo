@@ -5,8 +5,8 @@ import hydra
 from omegaconf import DictConfig
 
 from physicsnemo.distributed import DistributedManager
-from physicsnemo.launch.logging import LaunchLogger
-from physicsnemo.launch.utils import save_checkpoint
+from physicsnemo.utils.logging import LaunchLogger
+from physicsnemo.utils.checkpoint import save_checkpoint
 
 from clfm_pn.problems.gaussian_process import GPDataset, GPLoss
 from clfm_pn.nn.vae import FunctionalVAE

@@ -2,6 +2,8 @@ import torch.nn as nn
 from einops.layers.torch import Rearrange
 from physicsnemo.models.mlp import FullyConnected
 
+DEFAULT_ACTIVATION = "gelu"
+
 
 class PNFCEncoder(nn.Module):
     """Encoder network using PhysicsNemo's FullyConnected.
@@ -21,7 +23,7 @@ class PNFCEncoder(nn.Module):
             layer_size=hidden_size,
             out_features=output_size * 2,
             num_layers=num_hidden_layers,
-            activation_fn=nn.GELU(),
+            activation_fn=DEFAULT_ACTIVATION,
         )
 
     def forward(self, x):
@@ -51,7 +53,7 @@ class PNFCTrunk(nn.Module):
             layer_size=hidden_size,
             out_features=output_size * num_outputs,
             num_layers=num_hidden_layers,
-            activation_fn=nn.GELU(),
+            activation_fn=DEFAULT_ACTIVATION,
         )
         self.post = nn.Sequential(
             nn.GELU(),
@@ -81,7 +83,7 @@ class PNFCBranch(nn.Module):
             layer_size=hidden_size,
             out_features=output_size,
             num_layers=num_hidden_layers,
-            activation_fn=nn.GELU(),
+            activation_fn=DEFAULT_ACTIVATION,
         )
 
     def forward(self, x):
@@ -151,7 +153,7 @@ class PNFlowModel(nn.Module):
             layer_size=hidden_size,
             out_features=latent_dim,
             num_layers=num_hidden_layers,
-            activation_fn=nn.GELU(),
+            activation_fn=DEFAULT_ACTIVATION,
         )
 
     def forward(self, x):
